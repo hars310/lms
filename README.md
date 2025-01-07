@@ -1,6 +1,12 @@
 # Library Management System
 
+## Login details to access admin
 
+-  **email** : admin@gmail.com
+-  **password** : admin123 
+  
+## 
+ 
 ---
 
 ## Table of Contents

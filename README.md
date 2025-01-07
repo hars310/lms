@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Library Management System
+
+
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Demo](#demo)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Folder Structure](#folder-structure)
+- [Environment Variables](#environment-variables)
+- [Deployment](#deployment)
+- [Contact](#contact)
+
+---
+
+## Features
+
+This Library Management System is a full-stack web application designed to manage books, users, and borrowing/returning activities in a library. Below are the key features:
+
+### Frontend Features
+- **Add New Books**: Intuitive form to add books with details like title, author, publication year,ISBN,language,publisher,isborrowed and total pages.
+- **List All Books**: Paginated list of all books.
+- **Borrow and Return Books**: 
+  - Normal users can borrow or return books through an easy-to-use interface.
+  - Real-time updates to availability status after transactions.
+- **Responsive Design**: User-friendly interface built using modern frontend frameworks like React or Vue.js.
+
+### Backend Features
+- **Comprehensive API**:
+  - **CRUD Operations on Books**: Add, update, delete book details.
+  - **User Management**: APIs to create and manage user profiles.
+  - **Borrow and Return Books**: Endpoints to handle book transactions.
+- **Secure Access**:
+  - Authentication and authorization for admin and normal users.
+  - Role-based permissions to restrict admin functionalities (e.g., adding or deleting books) from normal users.
+- **Real-time Updates**: Borrow and return actions immediately update availability status and transaction history.
+
+### Database Features
+- **Book Management**:
+  - Tracks book details like title, author, publication year.
+- **User Profiles**:
+  - Stores user information such as name and contact details.
+    
+### Bonus Features
+- **Authentication System**:
+  - Admin and normal users have distinct roles.
+  - Login system with password protection and secure session handling.
+
+---
+
+## Demo
+
+You can see the live version here: [https://lms-six-olive.vercel.app](https://lms-six-olive.vercel.app)  
+*Figure 1: Home Page for User*
+![Home Page Preview](./public/homepage_user.png)
+
+*Figure 2: Home Page for Admin*
+![Home page admin Preview](./public/homepage_admin.png)
+
+*Figure 3: Login Page*
+![login Preview](./public/login.png)
+
+*Figure 4: Register Page*
+![register Preview](./public/register.png)
+
+*Figure 5: all book Page for User*
+![All Book Preview](./public/allbooks_user.png)
+
+*Figure 6: all book Page for admin*
+![All Book admin Preview](./public/allbooks_admin.png)
+
+*Figure 7: add book Page for User*
+![Add Book Preview](./public/addbook.png)
+
+---
+
+## Technologies Used
+
+- **Next.js**: Framework for building server-rendered React applications.
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: For styling.
+- **fetch**: For making API requests.
+- **mongoDB** : database to store books and users details.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v16.x or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- Optional: [Docker](https://www.docker.com/) (for containerized development)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/hars310/lms.git
+   cd lms
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running the Application
+
+To start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+For production build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Folder Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Folder Preview](./public/folderstructure.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
+```env
+
+MONGO_URI=mongodb+srv://your-database-url
+JWT_SECRET=your-secret-key
+```
+
+---
+
+## Deployment
+
+To deploy the project, you can use platforms like:
+
+- **Vercel**: Optimized for Next.js applications ([Deployment Guide](https://vercel.com/docs)).
+
+
+
+
+## Contact
+
+If you have any questions or feedback, feel free to contact me at:  
+📧 Email: [harshkumarsingh54321@gmail.com](mailto:harshkumarsingh54321@gmail.com)  
+🌐 LinkedIn: [https://www.linkedin.com/in/harshkumar3108](https://www.linkedin.com/in/harshkumar3108)
+
+---
+
+Happy Coding! 🎉

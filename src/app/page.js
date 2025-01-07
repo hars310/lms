@@ -23,12 +23,12 @@ export default function Home() {
           >
             List All Books
           </Link>
-          <Link
+          {/* <Link
             href="/borrow-return"
             className="block w-full text-center text-lg font-medium text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded transition duration-200"
           >
             Borrow/Return Books
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </div>

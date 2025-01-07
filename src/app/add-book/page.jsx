@@ -10,19 +10,50 @@ export default function AddBook() {
   const [language, setLanguage] = useState("");
   const [publisher, setPublisher] = useState("");
   const [totalPages, setTotalPages] = useState("");
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(
-      `Book added:\nTitle: ${title}\nAuthor: ${author}\nPublished Year: ${publishedYear}\nISBN: ${ISBN}\nLanguage: ${language}\nPublisher: ${publisher}\nTotal Pages: ${totalPages}`
-    );
-    setTitle("");
-    setAuthor("");
-    setPublishedYear("");
-    setISBN("");
-    setLanguage("");
-    setPublisher("");
-    setTotalPages("");
+    setError(null);
+    setSuccess(null);
+
+    const newBook = {
+      title,
+      author,
+      publishedYear,
+      ISBN,
+      language,
+      publisher,
+      totalPages: Number(totalPages), // Ensure totalPages is a number
+    };
+
+    try {
+      const response = await fetch("/api/books", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newBook),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to add book");
+      }
+
+      const data = await response.json();
+      setSuccess(`Book "${data.book.title}" added successfully!`);
+      setTitle("");
+      setAuthor("");
+      setPublishedYear("");
+      setISBN("");
+      setLanguage("");
+      setPublisher("");
+      setTotalPages("");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -31,6 +62,18 @@ export default function AddBook() {
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Add New Book
         </h2>
+
+        {error && (
+          <div className="mb-4 text-red-600 bg-red-100 p-3 rounded-lg">
+            {error}
+          </div>
+        )}
+        {success && (
+          <div className="mb-4 text-green-600 bg-green-100 p-3 rounded-lg">
+            {success}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Title Input */}
           <div>

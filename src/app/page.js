@@ -213,7 +213,7 @@ export default function Home() {
                 href="/register"
                 className="block w-full text-center text-lg font-medium text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded transition duration-200"
               >
-                Signup
+                Register
               </Link>
             </>
           )}

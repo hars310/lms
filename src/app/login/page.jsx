@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,19 +29,19 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded shadow-md w-full max-w-md"
       >
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
+        <h1 className="text-2xl font-bold text-zinc-700 mb-4">Login</h1>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">Email</label>
           <input
             type="email"
             required
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-300 p-2 rounded"
+            className="w-full border text-zinc-700 p-2 rounded"
           />
         </div>
         <div className="mb-4">
@@ -49,7 +50,7 @@ export default function Login() {
             type="password"
             required
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 p-2 rounded"
+            className="w-full border text-zinc-700 p-2 rounded"
           />
         </div>
         <button
@@ -58,7 +59,12 @@ export default function Login() {
         >
           Login
         </button>
+        <p className="text-black text-center">
+        Dont have a account 
+        <Link href={'/register'} className="underline text-red-500 ml-4">Register</Link>
+      </p>
       </form>
+      
     </div>
   );
 }

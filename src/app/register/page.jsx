@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -31,12 +32,12 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded shadow-md w-full max-w-md"
       >
-        <h1 className="text-2xl font-bold mb-4">Register</h1>
+        <h1 className="text-2xl text-zinc-700 font-bold mb-4">Register</h1>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">Name</label>
           <input
@@ -44,7 +45,7 @@ export default function Register() {
             name="name"
             required
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full border border-gray-300 p-2 rounded"
+            className="w-full border text-zinc-700 p-2 rounded"
           />
         </div>
         <div className="mb-4">
@@ -54,7 +55,7 @@ export default function Register() {
             name="email"
             required
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full border border-gray-300 p-2 rounded"
+            className="w-full border text-zinc-700 p-2 rounded"
           />
         </div>
         <div className="mb-4">
@@ -64,7 +65,7 @@ export default function Register() {
             name="password"
             required
             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            className="w-full border border-gray-300 p-2 rounded"
+            className="w-full border text-zinc-700 p-2 rounded"
           />
         </div>
         {formData.role === "admin" && (
@@ -78,7 +79,7 @@ export default function Register() {
               onChange={(e) =>
                 setFormData({ ...formData, adminKey: e.target.value })
               }
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border text-zinc-700 p-2 rounded"
             />
           </div>
         )}
@@ -88,7 +89,13 @@ export default function Register() {
         >
           Register
         </button>
+        <p className="text-center text-black">
+        Already have a account 
+        <Link href={'/login'} className="ml-4 text-green-400 underline">Login</Link>
+      </p>
       </form>
+      
+      
     </div>
   );
 }
